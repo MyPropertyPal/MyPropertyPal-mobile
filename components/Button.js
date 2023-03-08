@@ -12,8 +12,8 @@ export default function Button({ label }) {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    width: 320,
-    height: 68,
+    width: 200,
+    height: 58,
     marginHorizontal: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    backgroundColor: 'blue'
+    backgroundColor: 'white'
   },
   buttonPressed: {
     backgroundColor: 'green'

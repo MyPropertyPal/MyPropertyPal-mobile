@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Login from "./screens/Login";
-import SignUp from "./screens/SignUp";
+
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -16,11 +16,7 @@ export default function App() {
           component={Login}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-          options={{ headerShown: false }}
-        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

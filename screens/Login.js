@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
-function Login({navigation}) {
+import { LoginForm } from "../components/LoginSignup/LoginForm";
+import { SignupForm } from "../components/LoginSignup/SignupForm";
+function Login({ navigation }) {
+  const [display, setDisplay] = useState("Login");
+
   return (
     <View style={styles.container}>
-      <View style={styles.form}>
-        <Text style={styles.title}>Login to MyPropertyPal</Text>
-        <Button title="SignUp" onPress={()=>{
-          navigation.navigate('SignUp')
-        }}/>
-      </View>
+      {display === "Login" ? (
+        <LoginForm setDisplay={setDisplay} />
+      ) : display === "Signup" ? (
+        <SignupForm setDisplay={setDisplay} />
+      ) : null}
     </View>
   );
 }
@@ -51,6 +54,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   title: {
-    paddingBottom: 10
-  }
+    paddingBottom: 10,
+  },
 });

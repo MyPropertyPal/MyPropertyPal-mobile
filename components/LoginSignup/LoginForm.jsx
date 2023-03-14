@@ -35,11 +35,12 @@ export const LoginForm = ({ setDisplay }) => {
           {/* switch screens */}
           <TouchableOpacity
             style={styles.button}
+            t
             onPress={() => {
               setDisplay("Signup");
             }}
           >
-            <Text style={styles.buttonText}>Sign up</Text>
+            <Text style={styles.buttonText} >Sign up</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
   formContainer: {
     backgroundColor: "gray",
     display: "flex",
-    height: "50%",
+    height: "40%",
     width: "60%",
     justifyContent: "center",
     alignItems: "center",

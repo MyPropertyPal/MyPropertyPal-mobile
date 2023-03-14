@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { LoginForm } from "../components/LoginSignup/LoginForm";
 import { SignupForm } from "../components/LoginSignup/SignupForm";
-function Login({ navigation }) {
+import {auth} from '../firebase'
+import { useNavigation } from "@react-navigation/core";
+
+
+function Login() {
+
   const [display, setDisplay] = useState("Login");
+  const navigation = useNavigation();
+
 
   return (
     <View style={styles.container}>
@@ -20,7 +27,7 @@ export default Login;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "blue",
     height: "100%",
     width: "100%",
     display: "flex",

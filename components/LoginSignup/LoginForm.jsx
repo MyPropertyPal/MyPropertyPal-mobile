@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import {
   View,
   Text,
@@ -7,28 +7,56 @@ import {
   StyleSheet,
   TextInput,
 } from "react-native";
+import firebase from "firebase/compat";
+import "firebase/firestore";
+import {auth} from '../../firebase'
+import { useNavigation } from "@react-navigation/core";
 
 export const LoginForm = ({ setDisplay }) => {
+
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const navigation = useNavigation();
+
+
   const handleLogin = () => {
-    alert("you have Logged in");
-  };
+    auth
+    .signInWithEmailAndPassword(email, password)
+    .then(userCredentials => {
+      const user = userCredentials.user;
+      alert(`Logged in with: ${user.email}`)
+      navigation.replace("Home")
+  })
+    .catch(error => alert(error.message))
+}
+
   return (
     <KeyboardAvoidingView style={styles.formContainer}>
       {/* top section */}
       <Text>Login</Text>
       {/* Form text fields*/}
       <View style={styles.inputContainer}>
-        <TextInput style={styles.input} placeholder="Email" />
-        <TextInput style={styles.input} placeholder="Password" />
+      <TextInput
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          style={styles.input}
+        />
+        <TextInput
+          placeholder="Password"
+          value={password}
+          onChangeText={(text) => setPassword(text)}
+          style={styles.input}
+          secureTextEntry
+        />
 
         {/* botton section */}
         <View style={styles.buttonContainer}>
           {/* handle Login */}
           <TouchableOpacity
             style={styles.button}
-            onPress={() => {
-              handleLogin();
-            }}
+            onPress={handleLogin}
           >
             <Text style={styles.buttonText}> Login </Text>
           </TouchableOpacity>

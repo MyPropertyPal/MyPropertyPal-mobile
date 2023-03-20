@@ -77,7 +77,7 @@ export const LoginForm = ({ setDisplay }) => {
 };
 const styles = StyleSheet.create({
   formContainer: {
-    backgroundColor: "gray",
+    backgroundColor: "#ABD2C0",
     display: "flex",
     height: "40%",
     width: "60%",

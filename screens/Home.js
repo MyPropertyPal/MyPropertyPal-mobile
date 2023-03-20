@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { collection, doc, querySnapshot, where } from "firebase/firestore";
 import { app, db, auth } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
+import  Navbar  from "../components/Navbar";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -45,9 +46,11 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome {name}</Text>
+      <Text style={styles.text}>This is the home screen</Text>
       <TouchableOpacity onPress={handleSignOut}>
         <Text>Sign Out</Text>
       </TouchableOpacity>
+      <Navbar />
     </View>
   );
 };
@@ -57,7 +60,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    backgroundColor: "red",
+    backgroundColor: "#EBECDA",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",

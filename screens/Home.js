@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { collection, doc, querySnapshot, where } from "firebase/firestore";
 import { app, db, auth } from "../firebase";
 import { useNavigation } from "@react-navigation/core";
+import  Navbar  from "../components/Navbar";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -49,6 +50,7 @@ const Home = () => {
       <TouchableOpacity onPress={handleSignOut}>
         <Text>Sign Out</Text>
       </TouchableOpacity>
+      <Navbar />
     </View>
   );
 };

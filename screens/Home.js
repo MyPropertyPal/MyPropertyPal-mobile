@@ -45,6 +45,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome {name}</Text>
+      <Text style={styles.text}>This is the home screen</Text>
       <TouchableOpacity onPress={handleSignOut}>
         <Text>Sign Out</Text>
       </TouchableOpacity>
@@ -57,7 +58,7 @@ export default Home;
 const styles = StyleSheet.create({
   container: {
     display: "flex",
-    backgroundColor: "red",
+    backgroundColor: "#EBECDA",
     height: "100%",
     justifyContent: "center",
     alignItems: "center",

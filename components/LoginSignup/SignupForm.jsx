@@ -12,7 +12,6 @@ import firebase from "firebase/compat";
 import "firebase/firestore";
 
 export const SignupForm = ({ setDisplay }) => {
-  
   const auth = firebase.auth;
   const firestore = firebase.firestore;
   const db = firebase.firestore();
@@ -37,6 +36,7 @@ export const SignupForm = ({ setDisplay }) => {
         );
         const { uid } = userCredential.user;
         await setDoc(doc(db, "users", `${name}`), { name: name, email: email });
+        setDisplay("Login");
         alert(`Document added with ID: ${uid}`);
       } catch (error) {
         alert(error.message);
@@ -101,7 +101,7 @@ export const SignupForm = ({ setDisplay }) => {
 };
 const styles = StyleSheet.create({
   formContainer: {
-    backgroundColor: "gray",
+    backgroundColor: "#ABD2C0",
     display: "flex",
     height: "50%",
     width: "60%",
